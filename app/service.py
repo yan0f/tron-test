@@ -17,7 +17,7 @@ async def add_wallet_request(
     return wallet_request
 
 
-async def get_account_info_by_address(wallet_address):
+async def get_account_info_by_address(wallet_address: TAddress) -> [Decimal, int, int]:
     async with AsyncTron(network="nile") as client:
         account = await client.get_account(wallet_address)
         resource = await client.get_account_resource(wallet_address)
